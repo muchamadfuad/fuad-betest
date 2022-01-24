@@ -1,0 +1,14 @@
+{
+  "name": "ms-fuad-betest",
+  "version": "1.0.0",
+  "description": "crud user",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "fuad",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.2"
+  }
+}
