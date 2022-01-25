@@ -2,7 +2,7 @@
   "name": "ms-fuad-betest",
   "version": "1.0.0",
   "description": "crud user",
-  "main": "app.js",
+  "main": "service.js",
   "scripts": {
     "start": "node service.js",
     "dev": "nodemon service.js",
