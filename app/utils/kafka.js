@@ -17,9 +17,10 @@ const consume = async () => {
   await consumer.run({
     eachMessage: async ({ message }) => {
       console.log(`try create user from kafka with value: ${message.value}`)
-      const response = await userService.create(message.value);
+      const user = JSON.parse(message.value);
+      const response = await userService.createUser(user);
       if(response.code === CODE.CREATED)
-        console.log(`success create user: ${data}`)
+        console.log(`success create user: ${response.data}`)
       if(response.code !== CODE.CREATED)
         console.log(`failed create user : ${response.data}`)
     },
