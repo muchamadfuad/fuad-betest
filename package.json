@@ -2,13 +2,25 @@
   "name": "ms-fuad-betest",
   "version": "1.0.0",
   "description": "crud user",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "test": "test"
+    "start": "node service.js",
+    "dev": "nodemon service.js",
+    "test": "jest",
+    "test:coverage": "jest --coverage --watchAll=false"
   },
   "author": "fuad",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.2"
+    "cors": "^2.8.5",
+    "dotenv": "^14.3.0",
+    "express": "^4.17.2",
+    "jsonwebtoken": "^8.5.1",
+    "kafkajs": "^1.15.0",
+    "mongoose": "^6.1.7"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15",
+    "jest": "^27.4.7"
   }
 }
