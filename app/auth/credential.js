@@ -1,6 +1,6 @@
-const jwt = require('jsonwebtoken');
-const {CODE} = require("../utils/response");
-require('dotenv').config();
+const jwt = require("jsonwebtoken");
+const {CODE, WORDING} = require("../utils/response");
+require("dotenv").config();
 
 
 const secret = process.env.SECRET
@@ -21,14 +21,14 @@ const generateToken = async () =>{
 const verifyToken = (req, res, next) => {
   const tokenHeader = req.headers['authorization'];
   if (!tokenHeader)
-    return res.status(CODE.FORBIDDEN).send("No token provided");
+    return res.status(CODE.FORBIDDEN).send(WORDING.TOKEN_NOT_PROVIDED);
   if (tokenHeader.split(' ')[0] !== 'Bearer')
-    return res.status(CODE.FORBIDDEN).send("Incorrect token format");
+    return res.status(CODE.FORBIDDEN).send(WORDING.TOKEN_INCORRECT_FORMAT);
   const token = tokenHeader.split(' ')[1];
   if (!token)
-    return res.status(CODE.FORBIDDEN).send("No token provided");
+    return res.status(CODE.FORBIDDEN).send(WORDING.TOKEN_NOT_PROVIDED);
   jwt.verify(token, secret, (err, decoded) => {
-    if (err) {return res.status(CODE.FORBIDDEN).send("Token invalid")}
+    if (err) {return res.status(CODE.FORBIDDEN).send(WORDING.TOKEN_INVALID)}
     next();
   });
 }

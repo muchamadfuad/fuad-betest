@@ -1,7 +1,7 @@
 const { Kafka } = require("kafkajs")
 const UserService = require("../src/user/user-services")
-const {CODE} = require('../utils/response')
-require('dotenv').config();
+const {CODE} = require("../utils/response")
+require("dotenv").config();
 
 const clientId = process.env.CLIENT_ID
 const brokers = [process.env.BROKER_KAFKA]
