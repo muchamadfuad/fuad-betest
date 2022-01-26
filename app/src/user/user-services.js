@@ -33,7 +33,7 @@ class UserService {
     if (!user) return response.wrapper(response.WORDING.USER_NOT_FOUND, response.CODE.BAD_REQUEST)
     try {
       await User.updateOne({_id: userId}, {$set: payload});
-      return response.wrapper(response.WORDING.USER_DELETED, response.CODE.OK)
+      return response.wrapper(response.WORDING.USER_UPDATED, response.CODE.OK)
     } catch (error) {
       return response.wrapper(response.WORDING.USER_UPDATE_FAILED, response.CODE.INTERNAL_ERROR)
     }
